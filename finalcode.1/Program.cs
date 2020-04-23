@@ -9,9 +9,16 @@ namespace Assessment3
     class Program
     {
         //a couple of variables that I am going to use throughout the program, and I have added one variable to make NewLine(to simplify command and to reduce amount of repetition of long command)
+        //I have also made some public variables to call them from different functions and to easily alter them for all of the functions
         public string NewLine = Environment.NewLine;
         public string input;
         public string input2;
+        public string GitRepositories_1a = System.IO.File.ReadAllText(@"GitRepositories_1a.txt");
+        public string GitRepositories_1b = System.IO.File.ReadAllText(@"GitRepositories_1b.txt");
+        public string GitRepositories_2a = System.IO.File.ReadAllText(@"GitRepositories_1b.txt");
+        public string GitRepositories_2b = System.IO.File.ReadAllText(@"GitRepositories_2b.txt");
+        public string GitRepositories_3a = System.IO.File.ReadAllText(@"GitRepositories_3a.txt");
+        public string GitRepositories_3b = System.IO.File.ReadAllText(@"GitRepositories_3b.txt");
 
         static void Main(string[] args)
         {
@@ -33,13 +40,13 @@ namespace Assessment3
             input = Console.ReadLine();
             if (input == "File1")
             {
-                Option2();
+                CheckFiles();
             }
-            else if (input == $"file1 or File1")
+            else if (input == "file1")
             {
                 Option2();
             }
-            else if (input == "File2")
+            else if (input == $"File2")
             {
                 Option2();
             }
@@ -87,27 +94,22 @@ namespace Assessment3
 
         }
         public void Option2()
-        {
+            {
             Console.WriteLine("Which is the second file would you like to check" + NewLine);
             Console.WriteLine("Options");
-            Console.WriteLine("File1");
-            Console.WriteLine("File2");
-            Console.WriteLine("File3");
-            Console.WriteLine("File4");
-            Console.WriteLine("File5");
-            Console.WriteLine("File6");
+            Console.WriteLine("GitRepositories_1a");
+            Console.WriteLine("GitRepositories_1b");
+            Console.WriteLine("GitRepositories_2a");
+            Console.WriteLine("GitRepositories_2b");
+            Console.WriteLine("GitRepositories_3a");
+            Console.WriteLine("GitRepositories_3b");
             input2 = Console.ReadLine();
         }
         public void CheckFiles()
         //this is checking for files, comparing them and then letting the user know if they are the same or different
         {
-            string file1 = File.ReadAllText(@"GitRepositories_1a.txt");
-            string file2 = File.ReadAllText(@"GitRepositories_1b.txt");
-            string file3 = File.ReadAllText(@"GitRepositories_2a.txt");
-            string file4 = File.ReadAllText(@"GitRepositories_2b.txt");
-            string file5 = File.ReadAllText(@"GitRepositories_3a.txt");
-            string file6 = File.ReadAllText(@"GitRepositories_3b.txt");
-            if (string.Equals(file1, file2))
+            
+            if (string.Equals(GitRepositories_1a, GitRepositories_1b))
             {
                 Console.WriteLine("GitRepositories_1a and GitRepositories_1b are not different");
             }
@@ -115,7 +117,7 @@ namespace Assessment3
             {
                 Console.WriteLine("GitRepositories_1a and GitRepositories_1b are different");
             }
-            if (string.Equals(file3, file4))
+            if (string.Equals(GitRepositories_2a, GitRepositories_2b))
             {
                 Console.WriteLine("GitRepositories_2a and GitRepositories_2b are not different");
             }
@@ -123,13 +125,13 @@ namespace Assessment3
             {
                 Console.WriteLine("GitRepositories_2a and GitRepositories_2b are different");
             }
-            if (string.Equals(file5, file6))
+            if (string.Equals(GitRepositories_3a, GitRepositories_3b))
             {
                 Console.WriteLine("GitRepositories_3a and GitRepositories_3b are not different");
             }
             else
             {
-                Console.WriteLine("GitRepositories_3a and GitRepositories_3b are different" + NewLine);
+                //Console.WriteLine("GitRepositories_3a and GitRepositories_3b are different" + NewLine);
             }
             Program p = new Program();
             Console.WriteLine("Would you like to quit type Yes or No");
