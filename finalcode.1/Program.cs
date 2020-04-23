@@ -46,7 +46,7 @@ namespace Assessment3
             {
                 Option2();
             }
-            else if (input == $"File2")
+            else if (input == "File2")
             {
                 Option2();
             }
